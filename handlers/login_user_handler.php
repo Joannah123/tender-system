@@ -5,8 +5,8 @@ session_start();
 
 
 if(isset($_POST['login'])){
-   $email = mysqli_real_escape_string($_POST['email']);
-   $password = mysqli_real_escape_string($_POST['password1']);
+   $email = mysqli_real_escape_string($connection, $_POST['email']);
+   $password = mysqli_real_escape_string($connection, $_POST['password1']);
 
    
 
@@ -20,7 +20,7 @@ if(mysqli_num_rows($result) > 0){
     header("Location: home_page.php");
     exit();
 }else{
-    echo "I dont know you";
+    echo "I dont know you". "<br>";
 }
 
 }
